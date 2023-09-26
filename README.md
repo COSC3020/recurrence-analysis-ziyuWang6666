@@ -52,7 +52,12 @@ T(n) = 81T($\frac{n}{81}$) + $\left(\frac{n^5}{3^8 * 3^4}\right)$ + $\left(\frac
 
 T(n) = $3^i$ * T($\frac{n}{3^i}$) + $\left(\frac{1}{3^{2i}}\right)$ * \$n^5$ + $n^5$
 
-for i = $lg_{3}n$
+So, the recurrence relation is : T(n) = $3$ * T($\frac{n}{3}$) + $n^5$  ---5
 
-nT(1) + $n^5$ = n + $n^5$ $\in$ $\Theta$($n^5$)
+By the definition of Master's theorem,
+T(n) = a*T($\frac{n}{b}$) + f(n)
+1) if f(n) > $n^{lg_{b}a}$ => $O(f(n))$
+2) if f(n) < $n^{lg_{b}a}$ => $O(n^{lg_{b}a})$
+3) if f(n) = $n^{lg_{b}a}$ => $O(n^{lg_{b}a}*lgn)$
 
+When a = 3, b = 3, f(n) = $n^{lg_{b}a}$ = $n^{lg_{3}3}$ = n which meet the third case, so we will get result of T(n) = $O(n^5*logn)$
