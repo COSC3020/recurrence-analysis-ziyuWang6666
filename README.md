@@ -32,32 +32,31 @@ page](https://docs.github.com/en/get-started/writing-on-github/working-with-adva
 might help with the notation for mathematical expressions.
 
 ## Answer
+The recurrence relation is : T(n) = $3$ * T($\frac{n}{3}$) + $n^5$
+
 T(n) = 2T($\frac{n}{3}$) + $n^2$ * n * $n^2$ + T($\frac{n}{3}$)
 
 T(n) = 3T($\frac{n}{3}$) + $n^5$                                                                                    ---1
 
 T(n) = 3( 3T($\frac{n}{9}$) + $\left(\frac{n}{3}\right)^5$ ) + $n^5$
 
-T(n) = 9T($\frac{n}{9}$) + $\left(\frac{n^5}{3^4}\right)$ + $n^5$                                                   ---2
+T(n) = 9T($\frac{n}{9}$) + $\left(\frac{3n^5}{3^5}\right)$ + $n^5$                                                   ---2
 
-T(n) = 3( 9T($\frac{n}{27}$) + ($\left(\frac{n}{3})^5/{3^4}\right)$ + $\left(\frac{n}{3}\right)^5$) + $n^5$
+T(n) = 3( 9T($\frac{n}{27}$) + ($3\left(\frac{n}{3})^5/{3^5}\right)$ + $\left(\frac{n}{3}\right)^5$) + $n^5$
 
-T(n) = 27T($\frac{n}{27}$) + $\left(\frac{n^5}{3^8}\right)$ + $\left(\frac{n^5}{3^4}\right)$ + $n^5$                ---3
+T(n) = 27T($\frac{n}{27}$) + $\left(\frac{9n^5}{9^5}\right)$ + $\left(\frac{3n^5}{3^5}\right)$ + $n^5$                ---3
 
-T(n) = 81T($\frac{n}{81}$) + ($\left(\frac{n}{3})^5/{3^8}\right)$ + ($\left(\frac{n}{3})^5/{3^4}\right)$ + $\left(\frac{n^5}{3^4}\right)$ + $n^5$
+T(n) = 81T($\frac{n}{81}$) + 3($9\left(\frac{n}{3})^5/{9^5}\right)$ + 3($3\left(\frac{n}{3})^5/{3^5}\right)$ + $\left(\frac{3n^5}{3^5}\right)$ + $n^5$
 
-T(n) = 81T($\frac{n}{81}$) + $\left(\frac{n^5}{3^8 * 3^4}\right)$ + $\left(\frac{n^5}{3^8}\right)$ + $\left(\frac{n^5}{3^4}\right)$ + $n^5$        ---4
+T(n) = 81T($\frac{n}{81}$) + $27\left(\frac{n^5}{27^5}\right)$ + $9\left(\frac{n^5}{9^5}\right)$ + $\left(\frac{3n^5}{3^5}\right)$ + $n^5$        ---4
 
 ...
 
-T(n) = $3^i$ * T($\frac{n}{3^i}$) + $\left(\frac{1}{3^{2i}}\right)$ * \$n^5$ + $n^5$
+T(n) = $3^i$ * T($\frac{n}{3^i}$) + $\displaystyle\sum_{j=0}^{i-1} \frac{3^j}{3^{{j^5}}}$ $n^5$
 
-So, the recurrence relation is : T(n) = $3$ * T($\frac{n}{3}$) + $n^5$  ---5
+i = $\log_{3} n$
 
-By the definition of Master's theorem,
-T(n) = a*T($\frac{n}{b}$) + f(n)
-1) if f(n) > $n^{lg_{b}a}$ => $O(f(n))$
-2) if f(n) < $n^{lg_{b}a}$ => $O(n^{lg_{b}a})$
-3) if f(n) = $n^{lg_{b}a}$ => $O(n^{lg_{b}a}*lgn)$
+= $3^{log_{3}n}$ T($\frac{n}{3^{log_{3}n}}$) + $\displaystyle\sum_{j=0}^{3^{log_{3}n}-1} \frac{3^j}{3^{5j}}$ $n^5$
 
-When a = 3, b = 3, f(n) = $n^{lg_{b}a}$ = $n^{lg_{3}3}$ = n which meet the third case, so we will get result of T(n) = $O(n^5*logn)$
+= n + $\log_{3} n$ * $n^5$ $\in \Theta(n^5(log_{3}n))$
+
