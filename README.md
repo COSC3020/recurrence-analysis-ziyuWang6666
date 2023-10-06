@@ -32,7 +32,11 @@ page](https://docs.github.com/en/get-started/writing-on-github/working-with-adva
 might help with the notation for mathematical expressions.
 
 ## Answer
-The recurrence relation is : T(n) = $3$ * T($\frac{n}{3}$) + $n^5$
+The recurrence relation is : T(n) = 1 if $n\leq 1$; Otherwise, T(n) = $3$ * T($\frac{n}{3}$) + $n^5$
+
+
+
+Calculate T(n):
 
 T(n) = 2T($\frac{n}{3}$) + $n^2$ * n * $n^2$ + T($\frac{n}{3}$)
 
@@ -56,7 +60,7 @@ T(n) = $3^i$ * T($\frac{n}{3^i}$) + $\displaystyle\sum_{j=0}^{i-1} \frac{3^j}{3^
 
 i = $\log_{3} n$
 
-= $3^{log_{3}n}$ T($\frac{n}{3^{log_{3}n}}$) + $\displaystyle\sum_{j=0}^{3^{log_{3}n}-1} \frac{3^j}{3^{5j}}$ $n^5$
+= $3^{log_{3}n}$ T($\frac{n}{3^{log_{3}n}}$) + $\displaystyle\sum_{j=0}^{{log_{3}n}-1} \frac{3^j}{3^{5j}}$ $n^5$
 
 = n + $\log_{3} n$ * $n^5$ $\in \Theta(n^5(log_{3}n))$
 
