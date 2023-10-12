@@ -56,11 +56,12 @@ T(n) = 81T($\frac{n}{81}$) + $27\left(\frac{n^5}{27^5}\right)$ + $9\left(\frac{n
 
 ...
 
-T(n) = $3^i$ * T($\frac{n}{3^i}$) + $\displaystyle\sum_{j=0}^{i-1} \frac{3^j}{3^{{j^5}}}$ $n^5$
+T(n) = $3^i$ * T($\frac{n}{3^i}$) + $\displaystyle\sum_{j=0}^{i-1}$ $3^j$ $\left(\frac{n}{3^{j}}\right)^5$
 
-i = $\log_{3} n$
 
-= $3^{log_{3}n}$ T($\frac{n}{3^{log_{3}n}}$) + $\displaystyle\sum_{j=0}^{{log_{3}n}-1} \frac{3^j}{3^{5j}}$ $n^5$
+i = $\log_{3} n$, as $3^j$ $\left(\frac{n}{3^{j}}\right)^5$ are getting smaller and smaller fractions which will approaches to a constant times $n^5$
 
-= n + $\log_{3} n$ * $n^5$ $\in \Theta(n^5(log_{3}n))$
+= $3^{log_{3}n}$ T($\frac{n}{3^{log_{3}n}}$) + $C * n^5$
+
+= n + $C * n^5$ $\in \Theta(n^5)$
 
